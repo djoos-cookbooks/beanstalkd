@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-beanstalk
+# Cookbook Name:: chef-beanstalkd
 # Recipe:: default
 #
 # Copyright 2012, Escape Studios
@@ -37,7 +37,7 @@ template "/etc/default/beanstalkd" do
 	group "root"
 	mode 0640
 	variables(
-		:daemon_opts => node['beanstalk']['daemon_opts'],
-		:start_during_boot => node['beanstalk']['start_during_boot']
+		:daemon_opts => node['beanstalkd']['daemon_opts'],
+		:start_during_boot => node['beanstalkd']['start_during_boot']
 	)
 end

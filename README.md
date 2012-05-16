@@ -1,7 +1,7 @@
 Description
 ===========
 
-This cookbook provides an easy way to install Beanstalk: a simple, fast work queue.
+This cookbook provides an easy way to install beanstalkd: a fast, general-purpose work queue.
 
 More information?
 http://kr.github.com/beanstalkd/
@@ -21,13 +21,13 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 Attributes
 ==========
 
-* `node['beanstalk']['daemon_opts']` - The daemon opts value, defaults to ""
-* `node['beanstalk']['start_during_boot']` - The start during boot value, defaults to false
+* `node['beanstalkd']['daemon_opts']` - The daemon opts value, defaults to ""
+* `node['beanstalkd']['start_during_boot']` - The start during boot value, defaults to false
 
 Usage
 =====
 
-1) include `recipe[chef-beanstalk]` in a run list
+1) include `recipe[chef-beanstalkd]` in a run list
 2) tweak the attributes via attributes/default.rb
 	--- OR ---
 	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
@@ -35,7 +35,7 @@ Usage
 References
 ==========
 
-* [Beanstalk home page] (http://kr.github.com/beanstalkd/)
+* [beanstalkd home page] (http://kr.github.com/beanstalkd/)
 
 License and Authors
 ===================
