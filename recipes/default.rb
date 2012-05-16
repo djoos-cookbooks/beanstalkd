@@ -27,5 +27,17 @@ service "beanstalkd" do
 			]
 		}
 	)
+
 	action :enable
+end
+
+template "/etc/default/beanstalkd" do
+	source "beanstalkd.erb"
+	owner "root"
+	group "root"
+	mode 0640
+	variables(
+		:daemon_opts => node['beanstalk']['daemon_opts'],
+		:start_during_boot => node['beanstalk']['start_during_boot']
+	)
 end
