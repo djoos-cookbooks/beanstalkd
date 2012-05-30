@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-beanstalkd
+# Cookbook Name:: beanstalkd
 # Attributes:: default
 #
 # Copyright 2012, Escape Studios
