@@ -6,7 +6,7 @@
 #
 
 package "beanstalkd" do
-	action :install
+	action :upgrade
 end
 
 template "/etc/default/beanstalkd" do
