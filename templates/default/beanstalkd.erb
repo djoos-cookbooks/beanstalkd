@@ -7,7 +7,7 @@
 ## Defaults for the beanstalkd init script, /etc/init.d/beanstalkd on
 ## Debian systems. Append ``-b /var/lib/beanstalkd'' for persistent
 ## storage.
-DAEMON_OPTS="<%= @daemon_opts %>"
+DAEMON_OPTS="-l <%= @listen_addr %> -p <%= @listen_port %> -u <%= @user %>"
 
 ## Uncomment to enable startup during boot.
 <% if @start_during_boot.nil? || !@start_during_boot %>#<% end %>START=yes
