@@ -5,5 +5,7 @@
 # Copyright 2012, Escape Studios
 #
 
-default['beanstalkd']['daemon_opts'] = ""
-default['beanstalkd']['start_during_boot'] = false
+default[:beanstalkd][:opts] = {}
+
+#Ubuntu only
+default[:beanstalkd][:start_during_boot] = false
