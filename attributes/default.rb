@@ -5,7 +5,7 @@
 # Copyright 2012, Escape Studios
 #
 
-default['beanstalkd']['listen_addr'] = '0.0.0.0'
-default['beanstalkd']['listen_port'] = '11300'
-default['beanstalkd']['user'] = 'beanstalkd'
-default['beanstalkd']['start_during_boot'] = false
+default[:beanstalkd][:opts] = {}
+
+#Ubuntu only
+default[:beanstalkd][:start_during_boot] = false

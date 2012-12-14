@@ -13,11 +13,21 @@ Requirements
 
 This cookbook doesn't have direct dependencies on other cookbooks.
 
+## Platforms:
+
+* Ubuntu
+* Debian
+* RHEL
+* CentOS
+* Fedora
+* Scientific
+* Amazon
+
 Attributes
 ==========
 
-* `node['beanstalkd']['daemon_opts']` - The daemon opts value, defaults to ""
-* `node['beanstalkd']['start_during_boot']` - The start during boot value, defaults to false
+* `node[:beanstalkd][:opts]` - The opts array value, defaults to {}
+* `node[:beanstalkd][:start_during_boot]` - The start during boot value, defaults to false (beanstalkd on Ubuntu only)
 
 Usage
 =====
@@ -27,10 +37,36 @@ Usage
 	--- OR ---
 	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
+Example
+=======
+
+* override_attributes(
+	"beanstalkd" => {
+	    start_during_boot: true,
+	    opts: {
+	    	l: '10.0.1.5', #-l <addr>, listen on address <addr>
+	        p: '12345', #-p <port>, listen on TCP port <port>
+	        b: '/path/to/binlog', #-b <dir>, use a binlog to keep jobs on persistent storage in <dir>
+	        #see 'man beanstalkd' for more options
+	 	}
+	}
+)
+
 References
 ==========
 
 * [beanstalkd home page] (http://kr.github.com/beanstalkd/)
+
+Changelog
+=========
+
+### 0.1.0
+	* additional support for other OSs, in a clean and flexible way
+	* implemented some functionality of the digitalpioneers beanstalkd cookbook (Digital Pioneers)
+    * request support for other OSs (Charles Schaefer)
+
+### 0.0.x
+    * initial versions of the beanstalkd cookbook
 
 License and Authors
 ===================

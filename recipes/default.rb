@@ -9,24 +9,21 @@ package "beanstalkd" do
 	action :upgrade
 end
 
-if platform?("centos","redhat","fedora","scientific")
-	so_template = "/etc/sysconfig/beanstalkd"
-	template_src = "beanstalkd_rhel.erb"
-else
-	so_template = "/etc/default/beanstalkd"
-	template_src = "beanstalkd.erb"
+case node[:platform]
+	when "debian", "ubuntu"
+		template_path = "/etc/default/beanstalkd" #templates/ubuntu
+	else
+		template_path = "/etc/sysconfig/beanstalkd" #templates/default
 end
 
-template "#{so_template}" do
-	source template_src
+template "#{template_path}" do
+	source "beanstalkd.erb"
 	owner "root"
 	group "root"
 	mode 0640
 	variables(
-		:start_during_boot => node['beanstalkd']['start_during_boot'],
-		:listen_addr => node['beanstalkd']['listen_addr'],
-		:listen_port => node['beanstalkd']['listen_port'],
-		:user => node['beanstalkd']['user'],
+		:opts => node[:beanstalkd][:opts],
+		:start_during_boot => node[:beanstalkd][:start_during_boot]
 	)
 	notifies :restart, "service[beanstalkd]"
 end
