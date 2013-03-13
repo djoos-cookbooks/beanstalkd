@@ -2,7 +2,7 @@
 # Cookbook Name:: beanstalkd
 # Recipe:: default
 #
-# Copyright 2012, Escape Studios
+# Copyright 2012-2013, Escape Studios
 #
 
 package "beanstalkd" do
