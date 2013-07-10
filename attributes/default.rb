@@ -11,3 +11,4 @@ default["beanstalkd"]["opts"] = {}
 default["beanstalkd"]["start_during_boot"] = false
 
 default["beanstalkd"]["upgrade"] = true
+default["beanstalkd"]["repo"]    = false
