@@ -57,17 +57,6 @@ References
 
 * [beanstalkd home page] (http://kr.github.com/beanstalkd/)
 
-Changelog
-=========
-
-### 0.1.0
-	* additional support for other OSs, in a clean and flexible way
-	* implemented some functionality of the digitalpioneers beanstalkd cookbook (Digital Pioneers)
-    * request support for other OSs (Charles Schaefer)
-
-### 0.0.x
-    * initial versions of the beanstalkd cookbook
-
 License and Authors
 ===================
 
