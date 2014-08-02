@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/escapestudios/beanstalkd.png)](http://travis-ci.org/escapestudios/beanstalkd)
+[![Build Status](https://secure.travis-ci.org/escapestudios-cookbooks/beanstalkd.png)](http://travis-ci.org/escapestudios-cookbooks/beanstalkd)
 
 Description
 ===========
