@@ -33,3 +33,5 @@ BEANSTALKD_USER=<% if @opts['u'].nil? %>beanstalkd<% else %><%= @opts['u'] %><% 
 # The size of each binlog file.  This is rounded
 # up to the nearest 512 byte boundary.
 <% unless @opts['s'] %>#<% end %>BEANSTALKD_BINLOG_SIZE=<% if @opts['s'].nil? %>10485760<% else %><%= @opts['s'] %><% end %>
+
+<% unless @start_during_boot %>#<% end %>START=yes

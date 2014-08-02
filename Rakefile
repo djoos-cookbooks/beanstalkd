@@ -1,27 +1,47 @@
-#!/usr/bin/env rake
+require 'rspec/core/rake_task'
 
-require 'foodcritic'
+# syntax/lint checks: RuboCop & Foodcritic
+namespace :lint do
+  require 'rubocop/rake_task'
+  require 'foodcritic'
 
-task :default => [:foodcritic]
+  desc 'Run Ruby syntax/lint checks'
+  RuboCop::RakeTask.new(:ruby)
 
-FoodCritic::Rake::LintTask.new
-
-desc "Runs knife cookbook test"
-task :knife do
-  Rake::Task[:prepare_sandbox].execute
-
-  sh "bundle exec knife cookbook test cookbook -c test/.chef/knife.rb -o #{sandbox_path}/../"
+  desc 'Run Chef syntax/lint checks'
+  FoodCritic::Rake::LintTask.new(:chef) do |task|
+    task.options = {
+      :fail_tags => ['any']
+    }
+  end
 end
 
-task :prepare_sandbox do
-  files = %w{*.md *.rb attributes definitions files libraries providers recipes resources templates}
+desc 'Run all syntax/lint checks'
+task :lint => ['lint:ruby', 'lint:chef']
 
-  rm_rf sandbox_path
-  mkdir_p sandbox_path
-  cp_r Dir.glob("{#{files.join(',')}}"), sandbox_path
+# unit testing: ChefSpec
+desc 'Run RSpec and ChefSpec unit tests'
+RSpec::Core::RakeTask.new(:unit)
+
+# integration testing: Test Kitchen
+namespace :integration do
+  require 'kitchen'
+
+  desc 'Run Test Kitchen integration tests with Vagrant'
+  task :vagrant do
+    Kitchen.logger = Kitchen.default_file_logger
+    Kitchen::Config.new.instances.each do |instance|
+      instance.test(:always)
+    end
+  end
 end
 
-private
-def sandbox_path
-  File.join(File.dirname(__FILE__), %w(tmp cookbooks cookbook))
-end
+desc 'Run all integration tests'
+task :integration => ['integration:vagrant']
+
+# Travic CI
+desc 'Run tests on Travis CI'
+task :travis => [:lint, :unit]
+
+# the default rake task should just run it all
+task :default => [:lint, :unit, :integration]
