@@ -33,25 +33,25 @@ Attributes
 Usage
 =====
 
-1) include `recipe[beanstalkd]` in a run list
-2) tweak the attributes via attributes/default.rb
-	--- OR ---
-	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+ 1. include `recipe[beanstalkd]` in a run list
+ 2. Tweak the attributes via `attributes/default.rb`  
+    --- OR ---  
+    [override the attribute on a higher level](http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
 Example
 =======
 
-* override_attributes(
-	"beanstalkd" => {
-	    start_during_boot: true,
-	    opts: {
-	    	l: '10.0.1.5', #-l <addr>, listen on address <addr>
-	        p: '12345', #-p <port>, listen on TCP port <port>
-	        b: '/path/to/binlog', #-b <dir>, use a binlog to keep jobs on persistent storage in <dir>
-	        #see 'man beanstalkd' for more options
-	 	}
-	}
-)
+    override_attributes(
+        "beanstalkd" => {
+            start_during_boot: true,
+            opts: {
+                l: '10.0.1.5', #-l <addr>, listen on address <addr>
+                p: '12345', #-p <port>, listen on TCP port <port>
+                b: '/path/to/binlog', #-b <dir>, use a binlog to keep jobs on persistent storage in <dir>
+                #see 'man beanstalkd' for more options
+            }
+        }
+    )
 
 References
 ==========
