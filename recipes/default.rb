@@ -20,7 +20,7 @@ template template_path do
   source 'beanstalkd.erb'
   owner 'root'
   group 'root'
-  mode 0640
+  mode 0644
   variables(
     :opts => node[:beanstalkd][:opts],
     :start_during_boot => node[:beanstalkd][:start_during_boot]
