@@ -11,7 +11,8 @@ namespace :lint do
   desc 'Run Chef syntax/lint checks'
   FoodCritic::Rake::LintTask.new(:chef) do |task|
     task.options = {
-      :fail_tags => ['any']
+      :fail_tags => ['any'],
+      :tags      => ['~FC001']
     }
   end
 end
