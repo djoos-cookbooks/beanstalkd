@@ -28,8 +28,8 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 Attributes
 ==========
 
-* `node[:beanstalkd][:opts]` - The opts array value, defaults to {}
-* `node[:beanstalkd][:start_during_boot]` - The start during boot value, defaults to false (beanstalkd on Ubuntu only)
+* `node[:beanstalkd][:opts]` - The opts array value, defaults to `{l: '127.0.01', p: '11300'}`
+* `node[:beanstalkd][:start_during_boot]` - The start during boot value, defaults to false (beanstalkd on Debian only)
 
 Usage
 =====
