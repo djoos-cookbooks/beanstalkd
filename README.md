@@ -1,21 +1,20 @@
-[![Build Status](https://secure.travis-ci.org/escapestudios-cookbooks/beanstalkd.png)](http://travis-ci.org/escapestudios-cookbooks/beanstalkd)
+[![Build Status](https://secure.travis-ci.org/djoos-cookbooks/beanstalkd.png)](http://travis-ci.org/djoos-cookbooks/beanstalkd)
 
-Description
-===========
+# beanstalkd cookbook
 
+## Description
 This cookbook provides an easy way to install beanstalkd: a fast, general-purpose work queue.
 
 More information?
 http://kr.github.com/beanstalkd/
 
-Requirements
-============
+## Requirements
 
-## Cookbooks:
+### Cookbooks:
 
 This cookbook doesn't have direct dependencies on other cookbooks.
 
-## Platforms:
+### Platforms:
 
 * Ubuntu
 * Debian
@@ -25,46 +24,30 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 * Scientific
 * Amazon
 
-Attributes
-==========
+## Attributes
 
 * `node[:beanstalkd][:opts]` - The opts array value, defaults to {}
 * `node[:beanstalkd][:start_during_boot]` - The start during boot value, defaults to false (beanstalkd on Ubuntu only)
 
-Usage
-=====
+## Usage
 
- 1. include `recipe[beanstalkd]` in a run list
- 2. Tweak the attributes via `attributes/default.rb`  
-    --- OR ---  
-    [override the attribute on a higher level](http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+1. include `recipe[beanstalkd]` in a run list
+2. tweak the attributes via `attributes/default.rb`
+--- OR ---  
+[override the attribute on a higher level](http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
-Example
-=======
-
-    override_attributes(
-        "beanstalkd" => {
-            start_during_boot: true,
-            opts: {
-                l: '10.0.1.5', #-l <addr>, listen on address <addr>
-                p: '12345', #-p <port>, listen on TCP port <port>
-                b: '/path/to/binlog', #-b <dir>, use a binlog to keep jobs on persistent storage in <dir>
-                #see 'man beanstalkd' for more options
-            }
-        }
-    )
-
-References
-==========
+## References
 
 * [beanstalkd home page] (http://kr.github.com/beanstalkd/)
 
-License and Authors
-===================
+## License and Authors
+
+Author: David Joos <iam@davidjoos.com>
+Copyright: 2016, David Joos
 
 Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
-Copyright: 2012-2014, Escape Studios
+Copyright: 2012-2015, Escape Studios
 
 Unless otherwise noted, all files are released under the MIT license,
 possible exceptions will contain licensing information in them.
