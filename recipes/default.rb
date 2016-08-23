@@ -2,14 +2,14 @@
 # Cookbook Name:: beanstalkd
 # Recipe:: default
 #
-# Copyright 2012-2014, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 package 'beanstalkd' do
   action :upgrade
 end
 
-case node[:platform]
+case node['platform']
 when 'debian', 'ubuntu'
   template_path = '/etc/default/beanstalkd' # templates/ubuntu
 else
@@ -22,8 +22,8 @@ template template_path do
   group 'root'
   mode 0644
   variables(
-    :opts => node[:beanstalkd][:opts],
-    :start_during_boot => node[:beanstalkd][:start_during_boot]
+    :opts => node['beanstalkd']['opts'],
+    :start_during_boot => node['beanstalkd']['start_during_boot']
   )
   notifies :restart, 'service[beanstalkd]'
 end
