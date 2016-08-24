@@ -42,7 +42,7 @@ This cookbook doesn't have direct dependencies on other cookbooks.
 
 ## License and Authors
 
-Author: David Joos <iam@davidjoos.com>
+Author: David Joos <development@davidjoos.com>
 Copyright: 2016, David Joos
 
 Author: David Joos <david.joos@escapestudios.com>
