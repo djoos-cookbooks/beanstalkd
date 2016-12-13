@@ -9,29 +9,29 @@
 # Available options correspond to the options to the
 # beanstalkd commandline.
 
-BEANSTALKD_ADDR=<% if @opts['l'].nil? %>0.0.0.0<% else %><%= @opts['l'] %><% end %>
-BEANSTALKD_PORT=<% if @opts['p'].nil? %>11300<% else %><%= @opts['p'] %><% end %>
-BEANSTALKD_USER=<% if @opts['u'].nil? %>beanstalkd<% else %><%= @opts['u'] %><% end %>
+ADDR= -l <% if @opts['l'].nil? %>0.0.0.0<% else %><%= @opts['l'] %><% end %>
+PORT= -p <% if @opts['p'].nil? %>11300<% else %><%= @opts['p'] %><% end %>
+USER= -u <% if @opts['u'].nil? %>beanstalkd<% else %><%= @opts['u'] %><% end %>
 
 # Job size is left to the default. Uncomment and set it
 # to a value to have it take affect.
-<% unless @opts['z'] %>#<% end %>BEANSTALKD_MAX_JOB_SIZE=<% if @opts['z'].nil? %>65535<% else %><%= @opts['z'] %><% end %>
+<% unless @opts['z'] %>#<% end %>MAX_JOB_SIZE= -z <% if @opts['z'].nil? %>65535<% else %><%= @opts['z'] %><% end %>
 
 # Using the binlog is off by default.
 #
 # The direcory to house the binlog.
-<% unless @opts['b'] %>#<% end %>BEANSTALKD_BINLOG_DIR=<% if @opts['b'].nil? %>/var/lib/beanstalkd/binlog<% else %><%= @opts['b'] %><% end %>
+<% unless @opts['b'] %>#<% end %>$BINLOG_DIR= -b <% if @opts['b'].nil? %>/var/lib/beanstalkd/binlog<% else %><%= @opts['b'] %><% end %>
 
 #
 # fsync the binlog at most once every N milliseconds.
 # setting this to 0 means 'always fsync'. If this is unset,
 # and the binlog is used, then no explicit fsync is ever
 # performed.  That is, the -F option is used.
-<% unless @opts['f'] %>#<% end %>BEANSTALKD_BINLOG_FSYNC_PERIOD=<% if @opts['f'].nil? %><% else %><%= @opts['f'] %><% end %>
+<% unless @opts['f'] %>#<% end %>BINLOG_FSYNC_PERIOD= -f <% if @opts['f'].nil? %><% else %><%= @opts['f'] %><% end %>
 
 #
 # The size of each binlog file.  This is rounded
 # up to the nearest 512 byte boundary.
-<% unless @opts['s'] %>#<% end %>BEANSTALKD_BINLOG_SIZE=<% if @opts['s'].nil? %>10485760<% else %><%= @opts['s'] %><% end %>
+<% unless @opts['s'] %>#<% end %>BINLOG_SIZE= -s <% if @opts['s'].nil? %>10485760<% else %><%= @opts['s'] %><% end %>
 
 <% unless @start_during_boot %>#<% end %>START=yes
