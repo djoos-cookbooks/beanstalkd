@@ -28,10 +28,8 @@ template template_path do
   notifies :restart, 'service[beanstalkd]'
 end
 
-
 service 'beanstalkd' do
   supports [:start, :stop, :status]
   # starts the service if it's not running and enables it to start at system boot time
   action [:enable, :start]
 end
-
