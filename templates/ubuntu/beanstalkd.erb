@@ -8,6 +8,7 @@
 ## Debian systems. Append ``-b /var/lib/beanstalkd'' for persistent
 ## storage.
 BEANSTALKD_LISTEN_ADDR="<%= @listen_addr %>"
+BEANSTALKD_LISTEN_PORT=<% if @opts['p'].nil? %>11300<% else %><%= @opts['p'] %><% end %>
 BEANSTALKD_EXTRA="<% @opts.each do |k,v| %><%= "-#{k} #{v}" %> <% end %>"
 DAEMON_OPTS=$BEANSTALKD_EXTRA
 
