@@ -162,7 +162,7 @@ end
 # this module groups useful git commands together
 module GitCommands
   def self.ensure_branch(branch = 'master')
-    raise '[GIT] You must specify a branch.' if branch.blank?
+    raise '[GIT] You must specify a branch.' if branch.empty?
 
     return if /#{branch}/ =~ GeneralCommands.run('git rev-parse --abbrev-ref HEAD', 0, 1)
     raise '[GIT] Currently working on unexpected branch'
