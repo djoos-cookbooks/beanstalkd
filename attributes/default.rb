@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: beanstalkd
+# Cookbook:: beanstalkd
 # Attributes:: default
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
 
 default['beanstalkd']['opts'] = {}
@@ -11,4 +11,3 @@ default['beanstalkd']['opts'] = {}
 default['beanstalkd']['start_during_boot'] = false
 
 default['beanstalkd']['listen_addr'] = '127.0.0.1'
-
