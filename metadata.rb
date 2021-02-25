@@ -13,6 +13,6 @@ end
 source_url 'https://github.com/djoos-cookbooks/beanstalkd' if respond_to?(:source_url)
 issues_url 'https://github.com/djoos-cookbooks/beanstalkd/issues' if respond_to?(:issues_url)
 depends 'php'
-depends 'python'
+depends 'poise-python'
 
 recipe 'beanstalkd', 'Installs beanstalkd.'
