@@ -11,5 +11,3 @@ end
 
 source_url 'https://github.com/djoos-cookbooks/beanstalkd'
 issues_url 'https://github.com/djoos-cookbooks/beanstalkd/issues'
-depends 'php'
-depends 'poise-python'
