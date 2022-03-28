@@ -1,11 +1,13 @@
-# install the stable release of the Chef Development Kit (ChefDK)
-# use chef-current-precise to install the pre-release
+# use chef-current-xyz to install the pre-release
 addons:
   apt:
     sources:
-      - chef-stable-precise
+      - chef-stable-focal
     packages:
-      - chefdk
+      - chef-workstation
+
+env:
+  - CHEF_LICENSE=accept
 
 services: docker
 
@@ -13,7 +15,7 @@ services: docker
 install: true
 
 before_script:
-  - eval "$(/opt/chefdk/bin/chef shell-init bash)" # make ChefDK's Ruby the default
+  - eval "$(/opt/chef-workstation/bin/chef shell-init bash)" # make Chef Workstation's Ruby the default
   - chef --version
   - chef exec berks install
 
