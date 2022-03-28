@@ -3,7 +3,7 @@ maintainer 'David Joos'
 maintainer_email 'development@davidjoos.com'
 license 'MIT'
 description 'Installs/Configures beanstalkd'
-version '0.4.1'
+version '0.5.0'
 
 %w(debian ubuntu redhat centos fedora scientific amazon).each do |os|
   supports os
